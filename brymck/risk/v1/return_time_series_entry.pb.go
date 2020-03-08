@@ -5,7 +5,7 @@ package riskv1
 
 import (
 	fmt "fmt"
-	v1 "github.com/brymck/genproto/dates/v1"
+	v1 "github.com/brymck/genproto/brymck/dates/v1"
 	proto "github.com/golang/protobuf/proto"
 	math "math"
 )

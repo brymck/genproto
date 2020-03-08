@@ -6,7 +6,7 @@ package securitiesv1
 import (
 	context "context"
 	fmt "fmt"
-	v1 "github.com/brymck/genproto/dates/v1"
+	v1 "github.com/brymck/genproto/brymck/dates/v1"
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
 	math "math"
