@@ -23,8 +23,11 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+// A request for security information.
 type GetSecurityRequest struct {
-	Id                   uint64   `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// A unique identifier for a security.
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// The main symbol for the security per market convention.
 	Symbol               string   `protobuf:"bytes,2,opt,name=symbol,proto3" json:"symbol,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -437,13 +440,13 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type SecuritiesAPIClient interface {
-	// GetSecurity retrieves a full security data object.
+	// Retrieve a full security object.
 	GetSecurity(ctx context.Context, in *GetSecurityRequest, opts ...grpc.CallOption) (*GetSecurityResponse, error)
-	// GetSecurity inserts a new security.
+	// Insert a new security.
 	InsertSecurity(ctx context.Context, in *InsertSecurityRequest, opts ...grpc.CallOption) (*InsertSecurityResponse, error)
-	// GetPrices retrieves the prices for a specified security.
+	// Retrieve security prices.
 	GetPrices(ctx context.Context, in *GetPricesRequest, opts ...grpc.CallOption) (*GetPricesResponse, error)
-	// UpdatePrices updates prices.
+	// Update security prices.
 	UpdatePrices(ctx context.Context, in *UpdatePricesRequest, opts ...grpc.CallOption) (*UpdatePricesResponse, error)
 }
 
@@ -493,13 +496,13 @@ func (c *securitiesAPIClient) UpdatePrices(ctx context.Context, in *UpdatePrices
 
 // SecuritiesAPIServer is the server API for SecuritiesAPI service.
 type SecuritiesAPIServer interface {
-	// GetSecurity retrieves a full security data object.
+	// Retrieve a full security object.
 	GetSecurity(context.Context, *GetSecurityRequest) (*GetSecurityResponse, error)
-	// GetSecurity inserts a new security.
+	// Insert a new security.
 	InsertSecurity(context.Context, *InsertSecurityRequest) (*InsertSecurityResponse, error)
-	// GetPrices retrieves the prices for a specified security.
+	// Retrieve security prices.
 	GetPrices(context.Context, *GetPricesRequest) (*GetPricesResponse, error)
-	// UpdatePrices updates prices.
+	// Update security prices.
 	UpdatePrices(context.Context, *UpdatePricesRequest) (*UpdatePricesResponse, error)
 }
 
