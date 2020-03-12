@@ -21,9 +21,11 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-// Price is a date and price.
+// A combination of a date and price.
 type Price struct {
-	Date                 *v1.Date `protobuf:"bytes,1,opt,name=date,proto3" json:"date,omitempty"`
+	// A date.
+	Date *v1.Date `protobuf:"bytes,1,opt,name=date,proto3" json:"date,omitempty"`
+	// A price.
 	Price                float64  `protobuf:"fixed64,2,opt,name=price,proto3" json:"price,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
